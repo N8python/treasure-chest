@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="generate">Generate Chest</button>
+    <div id="res"></div>
+    <script>
+        function take(arr, num) {
+            let res = [];
+            for (let i = 0; i < num; i++) {
+                res.push(arr[Math.floor(Math.random() * arr.length)])
+            }
+            return res;
+        }
+        const commonItems = [
+            "Armblade",
+            "Armor of Gleaning",
+            "Candle Of The Deep",
+            "Cloak of Billowing",
+            "Feather Token",
+            "Glamerwave",
+            "Hat of Wizardry",
+            "Lock of Trickery",
+            "Moon-Touched Sword",
+            "Orb of Direction"
+        ];
+        const uncommonItems = [
+            "Boots of Elvenkind",
+            "Balance of Harmony",
+            "Circlet of Blasting",
+            "Elemental Gem",
+            "Eyes of The Eagle",
+            "Goggles of Night",
+            "Hat of Disguise",
+            "Potion of Growth"
+        ];
+        const rareItems = [
+            "Amulet of Health",
+            "Armor of Resistance",
+            "Horn of Blasting",
+            "Mind Blade",
+            "Pariah's Shield",
+            "Ring of Envasion"
+        ];
+        const veryRareItems = [
+            "Carpet of Flying",
+            "Crystal Ball",
+            "Wand of Polymorph",
+            "Voyager Staff"
+        ];
+        const legendaryItems = [
+            "Ring of Three Wishes",
+            "Cloak of Invisibility",
+            "Moonblade",
+            "Rod of Ressurection"
+        ];
+        document.getElementById("generate").addEventListener("click", () => {
+            const el = document.getElementById("res");
+            el.innerHTML = "";
+            el.innerHTML += `Common items: ${take(commonItems, 5).join(", ")} <br>`;
+            el.innerHTML += `Uncommon items: ${take(uncommonItems, 4).join(", ")} <br>`;
+            el.innerHTML += `Rare items: ${take(rareItems, 3).join(", ")} <br>`;
+            el.innerHTML += `Very Rare items: ${take(veryRareItems, 2).join(", ")} <br>`;
+            el.innerHTML += `Legendary Items: ${take(legendaryItems, 1).join(", ")} <br>`;
+        });
+    </script>
+</body>
+
+</html>
